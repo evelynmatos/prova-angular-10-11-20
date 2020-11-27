@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CepService } from './cep.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material';
 
 @NgModule({
 	declarations: [
@@ -20,8 +22,12 @@ import { CepService } from './cep.service';
 		MatTableModule,
 		MatInputModule,
 		HttpClientModule,
+		MatIconModule,
+		MatToolbarModule,
+		
 	],
 	providers: [CepService],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	
 })
 export class AppModule { }

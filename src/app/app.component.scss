@@ -1,19 +1,37 @@
+mat-toolbar {
+	background-color: #263238;
+	color: #aeea0a;
+	font-size: 25px;
+
+}
+
+
+.helpper{
+	width: 60vw;
+	float:left;
+}
+
 .main-wrapper {
 	.add-person {
 		position: absolute;
-		top: 28px;
-		right: 10vw;
+		bottom: 150px;
+		right: 14vw;
+		background-color: #aeea0a;
+		width: 200px;
+		height: 40px;
+		color: #343a40;
 	}
 }
 
 table, .form {
-	margin-left: 10vw;
+	margin-left: 8vw;
 	width: 80vw;
-	border: 1px solid grey;
 }
+
 
 table {
 	margin-top: 70px;
+	border-collapse: collapse;
 }
 
 .loading {
@@ -31,16 +49,15 @@ table {
 }
 
 .form {
-	margin-top: 50px;
-	padding: 16px;
+	text-align: center;
+	display: block;
+	padding: 80px;
+	width: 60%;
+	height: 150px;
 }
 
-mat-form-field {
-	width: 100%;
-}
-
-mat-form-field.readonly {
-	color: grey;
+mat-form-field{
+	padding-left: 15px;
 }
 
 #buttons {
@@ -50,14 +67,54 @@ mat-form-field.readonly {
 }
 
 td {
-	font-size: 12px;
+	font-size: 14px;
+	background-color: white;
+	text-align: center;
 }
 
-.action {
-	color: blue;
+.edit{
+	color:#aeea0a;
+	border-style: none;
+	background: none;
+}
+
+.delete {
+	color: red;
+	border-style: none;
+	background: none;
+}
+
+button{
 	cursor: pointer;
+	border-radius: 10px;
+	border: none;
+	font-weight: bold;
 }
 
-.action:hover {
-	background-color: aqua;
+.cancel{
+	width: 150px;
+	height: 30px;
+	background-color: #263238;
+	color: white;
 }
+
+.save{
+	width: 150px;
+	height: 30px;
+	background-color: #aeea0a;
+	color: #343a40;
+}
+
+th{
+	font-size: initial;
+	color: white;
+	background-color: #263238;
+	border: solid #263238;
+	border-top-width: 8px;
+	border-bottom-width: 10px;
+}
+
+.field{
+	text-align: center;
+}
+

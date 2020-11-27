@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CepService } from './cep.service';
 
@@ -12,6 +13,7 @@ export class AppComponent {
 	persons = [
 		{
 			name: 'Teste',
+			lastName: 'Teste',
 			cpf: 'Teste',
 			phone: 'Teste',
 			email: 'Teste',
@@ -19,11 +21,15 @@ export class AppComponent {
 			state: 'Teste',
 			city: 'Teste',
 			street: 'Teste',
+			neighborhood: 'Teste',
+			numberHome: 'Teste',
 		}
 	]
-	columns = ['name', 'cpf', 'phone', 'email', 'cep', 'state', 'city', 'street', 'actions']
+
+	columns = ['name', 'lastName', 'cpf', 'phone', 'email', 'cep', 'state', 'city', 'street', 'neighborhood', 'numberHome', 'actions']
 	selectedPerson
 	loading
+
 
 	addPerson() {
 		this.selectedPerson = {}
@@ -36,6 +42,9 @@ export class AppComponent {
 	deletePerson(person) {
 		remove(person)
 		this.persons = JSON.parse(get())
+		if(person.erro){
+			alert('Não foi possível excluir Helper');
+		}
 	}
 
 	changeCep(event) {
@@ -55,7 +64,7 @@ export class AppComponent {
 					}
 				}
 			}).catch(error => {
-				alert('Erro ao buscar o cep')
+				alert('Cep inválido, insira um CEP válido')
 				console.error(error)
 			}).finally(() => this.loading = false)
 		}
@@ -94,6 +103,7 @@ function populateTable() {
 	var persons = [
 		{
 			name: 'Maria Flores',
+			lastName: 'Sousa',
 			cpf: '83321492075',
 			phone: '1533283928',
 			email: 'maria_f@gmail.com',
@@ -101,36 +111,8 @@ function populateTable() {
 			state: 'AC',
 			city: 'Rio Branco',
 			street: 'Rua Arnaldo Aleixo (Conjunto Canaã)',
-		},
-		{
-			name: 'João Carlos',
-			cpf: '31213393035',
-			phone: '1532841040',
-			email: 'joao.c@gmail.com',
-			cep: '79096766',
-			state: 'MS',
-			city: 'Campo Grande',
-			street: 'Rua Rodolfho José Rospide da Motta',
-		},
-		{
-			name: 'Stephanie Dias',
-			cpf: '02085196020',
-			phone: '1533294040',
-			email: 'ste.dias@gmail.com',
-			cep: '23825080',
-			state: 'RJ',
-			city: 'Itaguaí',
-			street: 'Rua Mario Bastos Filho',
-		},
-		{
-			name: 'Mirtes Souza',
-			cpf: '33764389001',
-			phone: '1530178756',
-			email: 'irma.mirtes@gmail.com',
-			cep: '40420150',
-			state: 'BA',
-			city: 'Salvador',
-			street: '1ª Travessa Clóvis de Almeida Maia',
+			neighborhood: 'Roma',
+			numberHome: '2',
 		}
 	]
 
@@ -156,3 +138,6 @@ function remove(person) {
 	persons.splice(index, 1)
 	localStorage.setItem('persons', JSON.stringify(persons))
 }
+
+
+
